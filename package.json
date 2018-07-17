@@ -16,7 +16,7 @@
     "cover:check": "npm run cover && nyc check-coverage --lines 95 --functions 95 --branches 95",
     "jsdoc": "jsdoc app/scripts -r -d _dev/jsdoc && gulp serve --root=./_dev/jsdoc --dev",
     "gulpdoc": "jsdoc gulps/ gulpfile.js -r -d _dev/gulpdoc && gulp serve --root=./_dev/gulpdoc --dev",
-    "eslint": "eslint -c './.eslintrc.js' --ignore-pattern 'app/scripts/modules' ./app/scripts/",
+    "eslint": "eslint -c .eslintrc.js --fix --ignore-pattern 'app/scripts/modules' ./app/scripts/",
     "prepub": "npm test && npm run cover && npm run cover:check"
   },
   "main": "electron.js",
@@ -84,7 +84,7 @@
     "cordova-lib": "^8.0.0",
     "del": "^3.0.0",
     "dev-ip": "^1.0.1",
-    "eslint": "^4.14.0",
+    "eslint": "^4.19.1",
     "faucet": "0.0.1",
     "glob": "^7.1.2",
     "gulp": "^3.9.1",
@@ -128,3 +128,4 @@
     "underscore": "~1.7.0"
   }
 }
+
