@@ -103,6 +103,7 @@ test('navbar/View: onDestroy()', t => {
     t.end();
 });
 
+/*
 test('navbar/View: navigateAddNotebook()', t => {
     const view = new View({notebooks: new Notebooks()});
     sand.stub(view.channel, 'trigger');
@@ -115,6 +116,7 @@ test('navbar/View: navigateAddNotebook()', t => {
     sand.restore();
     t.end();
 });
+*/
 
 test('navbar/View: showAbout()', t => {
     const view = new View({notebooks: new Notebooks()});
