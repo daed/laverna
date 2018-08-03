@@ -5822,6 +5822,11 @@
       "integrity": "sha1-g8YK/Fi5xWmXAH7Rp2izqzA6RP4=",
       "dev": true
     },
+    "fs": {
+      "version": "0.0.1-security",
+      "resolved": "https://registry.npmjs.org/fs/-/fs-0.0.1-security.tgz",
+      "integrity": "sha1-invTcYa23d84E/I4WLV+yq9eQdQ="
+    },
     "fs-exists-sync": {
       "version": "0.1.0",
       "resolved": "https://registry.npmjs.org/fs-exists-sync/-/fs-exists-sync-0.1.0.tgz",
@@ -10686,6 +10691,12 @@
         "snapdragon": "^0.8.1",
         "to-regex": "^3.0.1"
       }
+    },
+    "natives": {
+      "version": "1.1.4",
+      "resolved": "https://registry.npmjs.org/natives/-/natives-1.1.4.tgz",
+      "integrity": "sha512-Q29yeg9aFKwhLVdkTAejM/HvYG0Y1Am1+HUkFQGn5k2j8GS+v60TVmZh6nujpEAj/qql+wGUrlryO8bF+b1jEg==",
+      "dev": true
     },
     "natural-compare": {
       "version": "1.4.0",
@@ -17683,14 +17694,6 @@
           "dev": true,
           "requires": {
             "natives": "^1.1.0"
-          },
-          "dependencies": {
-            "natives": {
-              "version": "1.1.4",
-              "resolved": "https://registry.npmjs.org/natives/-/natives-1.1.4.tgz",
-              "integrity": "sha512-Q29yeg9aFKwhLVdkTAejM/HvYG0Y1Am1+HUkFQGn5k2j8GS+v60TVmZh6nujpEAj/qql+wGUrlryO8bF+b1jEg==",
-              "dev": true
-            }
           }
         },
         "isarray": {
