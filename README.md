@@ -5,9 +5,9 @@
   <p><strong>A clean, lightweight alternative to Evernote that keeps your notes encrypted.</strong><br>
     Demo: https://laverna.cc <i> &nbsp;– or –&nbsp; </i> http://laverna.github.io/static-laverna</p>
 
-  [![Build Status](https://travis-ci.org/daed/laverna.svg?branch=brad-dev)](https://travis-ci.org/daed/laverna)
-  [![Coverage Status](https://coveralls.io/repos/github/Laverna/laverna/badge.svg?branch=dev)](https://coveralls.io/github/Laverna/laverna)
-  [![Code Climate](https://codeclimate.com/github/Laverna/laverna/badges/gpa.svg)](https://codeclimate.com/github/Laverna/laverna)
+  [![Build Status](https://travis-ci.org/daed/laverna.svg?branch=dev)](https://travis-ci.org/daed/laverna)
+  [![Coverage Status](https://coveralls.io/repos/github/daed/laverna/badge.svg?branch=dev)](https://coveralls.io/github/daed/laverna)
+  [![Code Climate](https://codeclimate.com/github/daed/laverna/badges/gpa.svg)](https://codeclimate.com/github/daed/laverna)
   ![Version](https://img.shields.io/badge/Version-0.7.51-blue.svg)
 
   <h3>
