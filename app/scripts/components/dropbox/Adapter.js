@@ -20,7 +20,7 @@ export default class Adapter {
      * @prop {String}
      */
     get clientKey() {
-        return '10iirspliqts95d';
+        return 'hlicys9cs8rj3ep';
     }
 
     /**

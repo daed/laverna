@@ -17,16 +17,16 @@ import _ from 'underscore';
  * not work and a user needs to provid their own
  */
 const constants = {
-    version       : '0.7.51',
+    version       : '0.1.00',
     url           : location.origin + location.pathname.replace('index.html', ''),
     defaultHosts  : [
-        'laverna.cc',
+        'privatenote-online.com',
         'laverna.github.io',
         'localhost',
         'localhost:9000',
         'localhost:9100',
     ],
-    dropboxKey    : '10iirspliqts95d',
+    dropboxKey    : 'hlicys9cs8rj3ep',
     dropboxSecret : null,
     dropboxKeyNeed: false,
 };
