@@ -185,11 +185,13 @@ appHelper = {
      */
     createWindow: function() {
 
-        // Recover window state (width, height, and x&y position)
-        this.state = windowStateKeeper('main', {
+        // Set window state (width, height, and x&y position)
+        this.state = {
+            x      : 0,
+            y      : 0,
             width  : 1000,
             height : 600
-        });
+        };
 
         // Create new browser window
         win = new BrowserWindow({
@@ -273,11 +275,6 @@ appHelper = {
      * Listen to window events.
      */
     registerEvents: function() {
-
-        // Save window state (width, height, and x&y position)
-        win.on('close', function() {
-            this.state.saveState(win);
-        }.bind(appHelper));
 
         win.on('closed', function() {
             win = null;
