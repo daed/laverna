@@ -20,6 +20,7 @@ const configNames = {
      *
      * @prop {String} appLang - localization (en|fr...etc)
      * @prop {String} theme - theme
+     * @prop {String} version - 0 is fully local, 1 is byos, 2 is fully hosted
      * @prop {String} pagination - the number of notes shown per page
      * @prop {String} sortnotes - key by which notes should be sorted
      * @prop {String} sortnotebooks - key by which notebooks should be sorted
@@ -30,6 +31,7 @@ const configNames = {
         appLang            : '',
         theme              : '',
 
+        version            : '0',
         pagination         : '10',
         sortnotes          : 'created',
         sortnotebooks      : 'name',
@@ -59,6 +61,7 @@ const configNames = {
      * @prop {String} cloudStorage - (p2p|dropbox|remotestorage)
      * @prop {String} dropboxKey - dropbox app key
      * @prop {String} dropboxAccessToken - dropbox access token
+     * @prop {String} folderPath - the path to your data storage directory
      */
     sync: {
         signalServer       : 'http://localhost:3000',
@@ -67,6 +70,7 @@ const configNames = {
         cloudStorage       : 'p2p',
         dropboxKey         : '',
         dropboxAccessToken : '',
+        folderPath        : '',
     },
 
     /**
