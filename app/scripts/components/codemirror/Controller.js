@@ -138,10 +138,7 @@ export default class Controller extends Mn.Object {
      * @returns {String}
      */
     getContent() {
-        let content = this.editor.instance.getValue();
-        //content = content.replace('&amp;', '&amp;amp;');
-        return content;
-        
+        return this.editor.instance.getValue();
     }
 
     /**

@@ -157,7 +157,7 @@ export default class Markdown extends WorkerModule {
      * @returns {Promise}
      */
     render(data) {
-        //const content = data.content;
+        // const content = data.content;
         const content = _.unescape(data.content);
         const env     = _.extend({}, data);
 

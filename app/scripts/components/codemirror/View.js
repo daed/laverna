@@ -111,10 +111,7 @@ export default class View extends Mn.View {
      * @param {Object} data
      */
     onChangeEditor(data) {
-        
-        const content = data.content;
-
-        this.ui.preview.html(content);
+        this.ui.preview.html(data.content);
 
         if (!this.isFirst) {
             this.isFirst = true;

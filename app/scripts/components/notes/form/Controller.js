@@ -140,8 +140,12 @@ export default class Controller extends Mn.Object {
     async save(options = {}) {
         let data = await this.getData();
         data     = this.checkTitle(data);
-        data.content = _.escape(data.content);
-//        data.content = data.content.replace('&amp;', '&amp;amp;');
+        //        data.content = data.content.replace('&amp;', '&amp;amp;');
+        
+        if (data.hasOwnProperty('content')) {
+            data.content = _.escape(data.content);
+        }
+        
         try {
             await this.notesChannel.request('saveModel', {
                 data,
@@ -171,9 +175,9 @@ export default class Controller extends Mn.Object {
         const notebookId = this.view.getChildView('notebooks').ui
         .notebookId.val().trim();
 
-        const data = await Radio.request('components/editor', 'getData');
-        //data.content = data.content.replace('&amp;', '&amp;amp;');
+        let data = await Radio.request('components/editor', 'getData');
         data.content = _.escape(data.content);
+        data = this.checkTitle(data);
         return _.extend({}, data, {
             notebookId,
             title: this.view.ui.title.val().trim(),

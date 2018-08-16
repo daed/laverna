@@ -70,7 +70,8 @@ export default class Controller extends Mn.Object {
      */
     save() {
         const data = {
-            name: this.view.ui.name.val().trim().toLowerCase(),
+            name: this.view.ui.name.val().trim()
+            .toLowerCase(),
         };
 
         return Radio.request('collections/Tags', 'saveModel', {
