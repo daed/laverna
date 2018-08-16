@@ -113,7 +113,6 @@ export default class View extends Mn.View {
     onChangeEditor(data) {
         
         const content = data.content;
-        // const content = data.content.replace('&amp;', '&amp;amp;');
 
         this.ui.preview.html(content);
 
