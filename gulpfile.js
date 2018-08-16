@@ -34,9 +34,12 @@ function createTask(name) {
     'css',
     'html',
     'lint',
+    'npm',
     'serve',
     'test',
     'copy',
+    'copyDist',
+    'copyRelease',
 ].forEach(createTask);
 
 gulp.task('release:after', () => {
