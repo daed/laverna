@@ -128,6 +128,7 @@ export default class Controller extends Mn.Object {
             this.onSaveObject);
     }
 
+    
     /**
      * Save the model.
      *
@@ -139,7 +140,8 @@ export default class Controller extends Mn.Object {
     async save(options = {}) {
         let data = await this.getData();
         data     = this.checkTitle(data);
-
+        data.content = _.escape(data.content);
+//        data.content = data.content.replace('&amp;', '&amp;amp;');
         try {
             await this.notesChannel.request('saveModel', {
                 data,
@@ -170,6 +172,8 @@ export default class Controller extends Mn.Object {
         .notebookId.val().trim();
 
         const data = await Radio.request('components/editor', 'getData');
+        //data.content = data.content.replace('&amp;', '&amp;amp;');
+        data.content = _.escape(data.content);
         return _.extend({}, data, {
             notebookId,
             title: this.view.ui.title.val().trim(),

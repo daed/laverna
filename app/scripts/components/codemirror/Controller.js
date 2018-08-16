@@ -138,7 +138,10 @@ export default class Controller extends Mn.Object {
      * @returns {String}
      */
     getContent() {
-        return this.editor.instance.getValue();
+        let content = this.editor.instance.getValue();
+        //content = content.replace('&amp;', '&amp;amp;');
+        return content;
+        
     }
 
     /**
@@ -152,6 +155,7 @@ export default class Controller extends Mn.Object {
             content: this.getContent(),
         });
 
+        //data.content = data.content.replace('&amp;', '&amp;amp;');
         return Radio.request('components/markdown', 'render', data)
         .then(content => this.view.trigger('change:editor', {content}));
     }

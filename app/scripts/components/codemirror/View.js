@@ -111,7 +111,11 @@ export default class View extends Mn.View {
      * @param {Object} data
      */
     onChangeEditor(data) {
-        this.ui.preview.html(data.content);
+        
+        const content = data.content;
+        // const content = data.content.replace('&amp;', '&amp;amp;');
+
+        this.ui.preview.html(content);
 
         if (!this.isFirst) {
             this.isFirst = true;
