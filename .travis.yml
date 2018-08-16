@@ -5,7 +5,7 @@ node_js:
 before_install:
     - npm install -g gulp bower jshint
 install:
-    - npm install
+    - travis_wait npm install
     - bower install
     - cd test && bower install && cd ../
 script:
