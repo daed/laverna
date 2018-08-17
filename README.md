@@ -61,7 +61,9 @@
 
 ## Install Desktop App (beta)
 
-After downloading the file for your operating system, unpack the `.zip` file. Inside the unpacked folder (e.g. `cd ~/Applications/laverna-0.7.51`), run an executable: `laverna.exe` for Windows, `laverna` for Linux and Mac.
+Install mongodb for your operating system:  https://www.mongodb.com/download-center?jmp=nav#community
+
+Install a version of laverna from the list below:
 
 ### Windows
 
@@ -77,6 +79,12 @@ After downloading the file for your operating system, unpack the `.zip` file. In
 * Download 64-bit: https://github.com/Laverna/laverna/releases/download/0.7.51/laverna-0.7.51-linux-x64.zip
 * Download 32-bit: https://github.com/Laverna/laverna/releases/download/0.7.51/laverna-0.7.51-linux-ia32.zip
 
+### Post installation
+
+Go to the directory you unzipped laverna and rename the file at resources/app/laverna-server/env.example to env.
+Edit that file and add a long random string of characters to JWT_SECRET.
+You should now be able to run the laverna executable.
+
 #### Arch Linux (or derived distributions)
 
 * Install the package [hosted here](https://aur.archlinux.org/packages/laverna/). Once installed, run: `$ pacaur -S laverna`
@@ -87,31 +95,10 @@ After downloading the file for your operating system, unpack the `.zip` file. In
 
 * All historical releases[ are available here](https://github.com/Laverna/laverna/releases).
 
-## Install a Prebuilt Version
-
-**1. Download via wget:**
-
-```bash
-$ wget https://github.com/Laverna/static-laverna/archive/gh-pages.zip -O laverna.zip
-```
-<br/>
-
-**2. Unpack the downloaded archive:**
-
-```bash
-$ unzip laverna.zip
-```
-<br/>
-
-**3. Open **`index.html`** (from inside the Laverna folder) in any browser.**
-
-<br/>
-<hr/>
-
 ## Developer Install & Documentation
 
 Setting up the Laverna development environment only takes a few minutes. To run locally, you need to have the following installed:
-* [Node.js version 6.11.4](https://nodejs.org/). Laverna works with other previous Node versions, but requires changes to `package.json` and is not recommended.
+* [Node.js version 8.11.4 or 10.9.0](https://nodejs.org/). Laverna works with other previous Node versions, but requires changes to `package.json` and is not recommended.
 * [MongoDB](https://docs.mongodb.com/manual/installation/)
 * [Git](https://git-scm.com/book/en/v2) (note: Windows users need to set the PATH variable for git after installation).
 
@@ -124,7 +111,7 @@ If you're planning to contribute to the project's development, hit the fork butt
 **1. Clone the Laverna repository:**
 
 ```bash
-$ git clone git@github.com:Laverna/laverna.git
+$ git clone git@github.com:daed/laverna.git
 ```
 <br/>
 
@@ -185,6 +172,7 @@ Copy `.env.example` to `.env` and change configs in the new file.
 $ npm start
 ```
 
+**5. Point a web broswer to http://localhost:9000**
 
 ## Coding Style Guidelines
 
@@ -198,16 +186,9 @@ The current Laverna release (on `master`) uses the [SJCL](http://bitwiseshiftlef
 
 **However, in our effort to permanently enhance the application's security**, Laverna is implementing OpenPGP encryption via [OpenPGP.js](https://github.com/openpgpjs/openpgpjs).
 
-
-## Donations
-
-* [BountySource](https://www.bountysource.com/teams/laverna)
-* [Bitcoin](http://blockchain.info/address/1Q68HfLjNvWbLFr3KGK6nfXg7vc3hpDr11)
-
-
 ## Support Laverna
 
-* Hit the star button on [GitHub](https://github.com/Laverna/laverna)
+* Hit the star button on [GitHub](https://github.com/daed/laverna)
 * Like us on [alternativeto.net](http://alternativeto.net/software/laverna/)
 * Contribute!
 

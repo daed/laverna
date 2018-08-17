@@ -5,7 +5,8 @@ module.exports = function(gulp) {
         return gulp.src([
             './preload.js',
             './server.js',
-            './package.json'
+            './electron.js',
+            './package.json',
         ], {base: './'})
         .pipe(gulp.dest('./release/laverna'));
     };

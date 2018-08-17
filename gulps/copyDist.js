@@ -3,9 +3,9 @@
 module.exports = function(gulp) {
     return function() {
         return gulp.src([
-            './dist',
+            './dist/**',
         ], {base: './'})
-        .pipe(gulp.dest('./release/laverna/dist'));
+        .pipe(gulp.dest('./release/laverna/'));
     };
 };
 

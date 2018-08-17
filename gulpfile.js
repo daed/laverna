@@ -32,6 +32,7 @@ function createTask(name) {
     'bundle',
     'clean',
     'css',
+    'electron',
     'html',
     'lint',
     'npm',
@@ -40,6 +41,7 @@ function createTask(name) {
     'copy',
     'copyDist',
     'copyRelease',
+    'lav-server',
 ].forEach(createTask);
 
 gulp.task('release:after', () => {
@@ -64,10 +66,12 @@ gulp.task('build', $.sequence(
 gulp.task('release', $.sequence(
     'build',
     'clean:release',
-    ['copyDist', 'copyRelease'],
+    'copyDist', 
+    'copyRelease',
+    'lav-server',
     'npm:install',
     'electron',
-    'release:after'
+    // 'release:after'
 ));
 
 /**
