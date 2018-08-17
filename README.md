@@ -8,7 +8,7 @@
   [![Build Status](https://travis-ci.org/daed/laverna.svg?branch=dev)](https://travis-ci.org/daed/laverna)
   [![Coverage Status](https://coveralls.io/repos/github/daed/laverna/badge.svg?branch=dev)](https://coveralls.io/github/daed/laverna)
   [![Code Climate](https://codeclimate.com/github/daed/laverna/badges/gpa.svg)](https://codeclimate.com/github/daed/laverna)
-  ![Version](https://img.shields.io/badge/Version-0.7.51-blue.svg)
+  ![Version](https://img.shields.io/badge/Version-1.0.0.beta-orange.svg)
 
   <h3>
     <a href="https://gitter.im/Laverna/laverna">
@@ -19,7 +19,7 @@
       IRC
     </a>
     <span> | </span>
-    <a href="https://github.com/Laverna/laverna/wiki">
+    <a href="https://github.com/daed/laverna/wiki">
       Wiki
     </a>
     <span> | </span>
@@ -59,7 +59,7 @@
 * Open [laverna.cc](https://laverna.cc/) and get started in less than 30 seconds.
 * No extra steps are required!
 
-## Install Desktop App (beta)
+## Install Standalone Desktop App (beta)
 
 Install mongodb for your operating system:  https://www.mongodb.com/download-center?jmp=nav#community
 
@@ -84,6 +84,9 @@ Install a version of laverna from the list below:
 Go to the directory you unzipped laverna and rename the file at resources/app/laverna-server/env.example to env.
 Edit that file and add a long random string of characters to JWT_SECRET.
 You should now be able to run the laverna executable.
+
+## Install Client Desktop App (beta)
+(coming soon)
 
 #### Arch Linux (or derived distributions)
 
