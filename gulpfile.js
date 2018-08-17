@@ -70,8 +70,7 @@ gulp.task('release', $.sequence(
     'copyRelease',
     'lav-server',
     'npm:install',
-    'electron',
-    // 'release:after'
+    'electron'
 ));
 
 /**
