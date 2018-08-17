@@ -61,6 +61,8 @@
 
 ## Install Standalone Desktop App (beta)
 
+**NOTE: IF YOU ARE UPGRADING FROM AN OLD VERSION OF LAVERNA, BACKUP EVERYTHING FIRST.  THIS CODE HAS BEEN TESTED BUT MANY THINGS HAVE CHANGED.  DATA LOSS IS POTENTIAL.**
+
 Install mongodb for your operating system:  https://www.mongodb.com/download-center?jmp=nav#community
 
 Install a version of laverna from the list below:
