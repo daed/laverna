@@ -38,6 +38,7 @@ export default class Controller extends Mn.Object {
     init() {
         return new Promise((resolve, reject) => {
             this.promise = {resolve, reject};
+            // why?  -ba
             this.fetchShow();
         });
     }
@@ -60,7 +61,8 @@ export default class Controller extends Mn.Object {
      * Render the view.
      */
     show() {
-        log('profiles', this.profiles);
+        // this is insane.  No.  -ba
+        // log('profiles', this.profiles);
         this.view = new View({profiles: this.profiles});
         Radio.request('Layout', 'show', {
             region : 'brand',

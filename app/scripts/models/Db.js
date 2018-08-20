@@ -31,7 +31,7 @@ export default class Db extends WorkerModule {
      * Return a localforage instance. Create one if it doesn't exist.
      *
      * @param {Object} options
-     * @param {String} options.profile - database name
+     * @param {String} options.profileId - database name
      * @param {String} options.storeName - storage name {notes|tags|notebooks}
      * @returns {Object} localforage instance
      */
@@ -40,19 +40,53 @@ export default class Db extends WorkerModule {
         let profileId     = options.profileId;
         const id          = `${profileId}/${storeName}`;
 
+
         /* Add the prefix only if it's not "notes-db" profile to
            be compatible with old backups */
         if (profileId !== 'notes-db') {
             profileId = `lav-${profileId}`;
         }
-
+        console.log("attempting db creation");
         this.dbs[id] = this.dbs[id] || localforage.createInstance({
             storeName,
             name: profileId,
         });
-
+        console.log(this.dbs[id]);
         return this.dbs[id];
     }
+
+    /**
+     * Destroy a localforage instance.
+     *
+     * @param {Object} options
+     * @param {String} options.profile - database name
+     * @param {String} options.storeName - storage name {notes|tags|notebooks}
+     * @returns {Object} localforage instance
+     */
+    dropDb(id) {
+        console.log("start dropDb()");
+        console.log("Profile id: " + id);
+        // remove the keys from the profile
+        const profileId = "default";
+        const storeName = "profiles";
+
+        console.log("attempting getDb(" + profileId +", " + storeName + ", " + id + ")");
+        this.getDb({profileId: 'default', storeName: 'profiles'}).removeItem(id);
+        /* Add the prefix only if it's not "notes-db" profile to
+           be compatible with old backups */
+        
+        if (id !== 'notes-db') {
+            id = `lav-${id}`;
+        };
+        console.log('dropInstance(' + id + ")");
+        this.getDb({}).dropInstance({
+            // storeName,
+            name: id,
+        })
+        .then(console.log('removing profile key'));
+        console.log("Booooooooom!!!!");
+    }
+
 
     /**
      * Find an item by id.
@@ -121,6 +155,7 @@ export default class Db extends WorkerModule {
      * @returns {Promise}
      */
     removeItem(options) {
+        console.log("removeItem: " + options.profileId + "/" + options.storeName + ": " + options.data[idAttribute]);
         const idAttribute = options.idAttribute || 'id';
         const key         = options.data[idAttribute] || options[idAttribute];
         return this.getDb(options).removeItem(key);

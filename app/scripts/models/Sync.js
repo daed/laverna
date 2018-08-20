@@ -166,4 +166,14 @@ export default class Sync {
         return this.db.processRequest('removeItem', [opt]);
     }
 
+    sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async destroyDb(model, options) {
+        this.sleep(1000);
+        console.log("Sync.destroyDb(): Calling db.dropdb()");
+        const opt = _.extend(options);
+        return this.db.dropDb(model);
+    }
 }

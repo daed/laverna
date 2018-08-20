@@ -100,6 +100,11 @@ export default class Collection extends Backbone.Collection {
         return this;
     }
 
+    destroyUser(opt) {
+        console.log("destroyUser(): calling destroyDb()");
+        this.sync("destroyDb", opt, {});
+    }
+
     /**
      * Return filter conditions.
      *

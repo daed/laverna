@@ -57,7 +57,7 @@
     "js-md5": "^0.7.3",
     "jsondiffpatch": "^0.2.5",
     "jszip": "^3.1.5",
-    "localforage": "^1.5.5",
+    "localforage": "^1.7.2",
     "markdown-it": "^8.4.0",
     "markdown-it-hashtag": "^0.4.0",
     "markdown-it-math": "^4.1.0",

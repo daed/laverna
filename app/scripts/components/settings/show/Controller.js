@@ -13,6 +13,7 @@ import Encryption from './encryption/View';
 import Keybindings from './keybindings/View';
 import Sync from './sync/View';
 import ImportExport from './importExport/View';
+import Wipe from './wipe/View';
 
 const log = deb('lav:components/settings/show/Controller');
 
@@ -38,6 +39,7 @@ export default class Controller extends Mn.Object {
             Keybindings,
             Sync,
             ImportExport,
+            Wipe,
         };
     }
 

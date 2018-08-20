@@ -38,6 +38,7 @@ export default class Profiles extends Module {
             getUser          : this.getUser,
             getProfile       : this.getProfile,
             changePassphrase : this.changePassphrase,
+            destroyProfile   : this.destroyProfile,
         }, this);
     }
 
@@ -53,6 +54,12 @@ export default class Profiles extends Module {
     createProfile({username, privateKey, publicKey}) {
         this.profile = new this.Model({username, privateKey, publicKey});
         return this.saveModel({model: this.profile});
+    }
+
+    // This destroys a user's profile outright.
+    destroyProfile(opt) {
+        console.log("destroyProfile(): calling destroyUser()");
+        this.collection.destroyUser(opt);
     }
 
     /**
