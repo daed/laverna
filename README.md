@@ -65,21 +65,9 @@
 
 Install mongodb for your operating system:  https://www.mongodb.com/download-center?jmp=nav#community
 
-Install a version of laverna from the list below:
+Install a version of laverna from here:
 
-### Windows
-
-* Download 64-bit: https://github.com/Laverna/laverna/releases/download/0.7.51/laverna-0.7.51-win32-x64.zip
-* Download 32-bit: https://github.com/Laverna/laverna/releases/download/0.7.51/laverna-0.7.51-win32-ia32.zip
-
-### macOS
-
-* Download: https://github.com/Laverna/laverna/releases/download/0.7.51/laverna-0.7.51-darwin-x64.zip
-
-### Linux
-
-* Download 64-bit: https://github.com/Laverna/laverna/releases/download/0.7.51/laverna-0.7.51-linux-x64.zip
-* Download 32-bit: https://github.com/Laverna/laverna/releases/download/0.7.51/laverna-0.7.51-linux-ia32.zip
+https://github.com/daed/laverna/releases/tag/v1.0.0-beta
 
 ### Post installation
 
