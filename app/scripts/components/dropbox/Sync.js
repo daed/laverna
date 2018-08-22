@@ -194,16 +194,18 @@ export default class Sync {
      */
     syncRemoteChanges({files, collection}) {
         const promises = [];
-
         _.each(files, file => {
+            console.log("dropbox file: ");
+            console.log(file);
             const model = collection.findWhere({id: file.id});
 
             if (!model || model.get('updated') < file.updated) {
                 this.stat.statRemote = true;
-                promises.push(collection.channel.request('saveModelObject', {
+                const newModel = promises.push(collection.channel.request('saveModelObject', {
                     data      : file,
                     profileId : this.profileId,
                 }));
+                Radio.trigger('components/notes', 'save:model', {model: newModel});
             }
         });
 
