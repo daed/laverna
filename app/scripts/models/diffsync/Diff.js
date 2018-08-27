@@ -271,6 +271,18 @@ export default class Diff extends DiffModel {
      * @returns {Promise}
      */
     checkDocPeers(doc, send = false) {
+        function findDocPeers(doc) {
+            const peers = this.channel.request('getClientPeers');
+    
+            return _.filter(peers, peer => {
+                return (
+                    peer.username === this.options.configs.username ||
+                    peer.username === doc.get('sharedBy') ||
+                    _.indexOf(doc.get('sharedWith'), peer.username) !== -1
+                );
+            });
+        }
+
         if (this.channel.request('isLocked', doc.storeName, doc.id)) {
             log(`document ${doc.storeName}/${doc.id} is locked!`);
             return Promise.resolve();
@@ -280,7 +292,7 @@ export default class Diff extends DiffModel {
         this.channel.request('lockDoc', doc.storeName, doc.id);
         let promise = Promise.resolve();
 
-        _.each(this.findDocPeers(doc), peer => {
+        _.each(findDocPeers(doc), peer => {
             if (this.channel.request('isPending', peer)) {
                 log(`still waiting for a ${peer.username}'s response'`);
             }

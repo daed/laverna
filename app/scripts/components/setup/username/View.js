@@ -51,7 +51,7 @@ export default class Username extends View {
     serializeData() {
         return {
             newIdentity : this.options.newIdentity,
-            signalServer: configNames.signalServer,
+            signalServer: configNames.sync.signalServer,
         };
     }
 

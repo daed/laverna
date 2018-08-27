@@ -21,7 +21,7 @@ export default class View extends Mn.View {
     ui() {
         return {
             password : 'input[name=password]',
-            username : 'input[name=username]',
+            username : 'select[name=username]',
             btn      : '.btn[type=submit]',
         };
     }

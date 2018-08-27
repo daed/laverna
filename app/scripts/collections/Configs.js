@@ -95,7 +95,9 @@ export default class Configs extends Collection {
         if (typeof data.appProfiles === 'string') {
             data.appProfiles = JSON.parse(data.appProfiles);
         }
-
+        console.log("getConfigs():");
+        console.log(data);
+        console.log(this.models);
         return data;
     }
 

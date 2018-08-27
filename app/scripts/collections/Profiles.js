@@ -22,6 +22,11 @@ export default class Profiles extends Collection {
         return Profile;
     }
 
+    destroyUser(opt) {
+        console.log("destroyUser(): calling destroyDb()");
+        this.sync("destroyDb", opt, {});
+    }
+
     constructor(models) {
         // Change the profileId to "default"
         super(models, {profileId: 'default'});

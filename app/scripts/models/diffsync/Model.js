@@ -185,10 +185,12 @@ export default class Diff {
      * @param {String} sharedBy - the username of a peer which will be used
      * to create a new document in case if it does not exist
      */
+
     findDoc(docs, edit, sharedBy) {
         const collection = this.findCollection(docs, edit);
         return collection.findOrCreate(edit.get('docId'), {sharedBy});
     }
+
 
     /**
      * Find all edits that should be sent to a peer.
@@ -205,22 +207,4 @@ export default class Diff {
         // Make sure it doesn't send un-encrypted data
         return _.map(edits, model => model.getData());
     }
-
-    /**
-     * Return an array of peers whom the document is shared with.
-     *
-     * @param {Object} doc
-     */
-    findDocPeers(doc) {
-        const peers = this.channel.request('getClientPeers');
-
-        return _.filter(peers, peer => {
-            return (
-                peer.username === this.options.configs.username ||
-                peer.username === doc.get('sharedBy') ||
-                _.indexOf(doc.get('sharedWith'), peer.username) !== -1
-            );
-        });
-    }
-
 }
