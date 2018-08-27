@@ -4,7 +4,7 @@
 import _ from 'underscore';
 import Collection from './Collection';
 import Config from '../models/Config';
-import {flattenConfigs, configNames} from './configNames';
+import {configNames} from './configNames';
 
 /**
  * Config collection.
@@ -29,10 +29,11 @@ export default class Configs extends Collection {
      *
      * @returns {Object}
      */
+    /*
     get configNames() {
         return flattenConfigs();
     }
-
+    */
     /**
      * If current length of models is not equal to the length of
      * keys in configs property, there are new configs.
@@ -40,7 +41,7 @@ export default class Configs extends Collection {
      * @returns {Boolean} true if there are new configs
      */
     hasNewConfigs() {
-        return (_.keys(this.configNames).length !== this.length);
+        return (_.keys(configNames).length !== this.length);
     }
 
     /**
@@ -51,7 +52,7 @@ export default class Configs extends Collection {
     createDefault() {
         const promises = [];
 
-        _.each(this.configNames, (value, name) => {
+        _.each(configNames, (value, name) => {
             // If a model exists, do not override it with default values
             if (typeof this.get(name) !== 'undefined') {
                 return;
@@ -105,7 +106,7 @@ export default class Configs extends Collection {
      * @returns {Object} Backbone.model
      */
     getDefault(name) {
-        const value = this.configNames[name];
+        const value = configNames[name];
         return new this.model({name, value});
     }
 
@@ -115,6 +116,8 @@ export default class Configs extends Collection {
      * @param {Object} configs - key=value object
      * @returns {Object} this
      */
+    // Commented out.  Will remove if nothing breaks  08-26 -BA
+    /*
     resetFromObject(configs) {
         const models = [];
 
@@ -123,6 +126,7 @@ export default class Configs extends Collection {
 
         return this;
     }
+    */
 
     /**
      * Filter the collection to have only keybinding related models.

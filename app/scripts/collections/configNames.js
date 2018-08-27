@@ -11,7 +11,7 @@ import _ from 'underscore';
  * @license MPL-2.0
  */
 const configNames = {
-    appVersion         : '0.5.0',
+    appVersion         : '1.0.0',
     firstStart         : '1',
     modules            : [],
 
@@ -27,7 +27,6 @@ const configNames = {
      * @prop {String} navbarNotebooksMax - the maximum amount of notebooks shown
      * in the navbar
      */
-    general: {
         appLang            : '',
         theme              : '',
 
@@ -36,7 +35,6 @@ const configNames = {
         sortnotes          : 'created',
         sortnotebooks      : 'name',
         navbarNotebooksMax : '5',
-    },
 
     /**
      * Codemirror settings.
@@ -45,11 +43,9 @@ const configNames = {
      * @prop {String} textEditor - keybindings used for the editor (vim|emacs|sublime)
      * @prop {String} indentUnit - number of spaces used for indentation
      */
-    codemirror: {
         editMode           : 'preview',
         textEditor         : 'default',
         indentUnit         : '4',
-    },
 
     /**
      * Synchronization settings.
@@ -63,7 +59,6 @@ const configNames = {
      * @prop {String} dropboxAccessToken - dropbox access token
      * @prop {String} folderPath - the path to your data storage directory
      */
-    sync: {
         signalServer       : 'http://localhost:3000',
         deviceId           : '',
         peers              : [],
@@ -71,7 +66,6 @@ const configNames = {
         dropboxKey         : '',
         dropboxAccessToken : '',
         folderPath        : '',
-    },
 
     /**
      * Encryption settings.
@@ -80,11 +74,8 @@ const configNames = {
      * @prop {Object} encryptBackup - used for storing the previous encryption
      * settings.
      */
-    encryption: {
-        encrypt       : '0',
-        encryptBackup : {},
-    },
-
+    encrypt       : '0',
+    encryptBackup : {},
     /**
      * Keybinding settings.
      *
@@ -102,7 +93,6 @@ const configNames = {
      * @prop {String} appSearch - show search box (default /)
      * @prop {String} appKeyboardHelp - show keybinding help (default ?)
      */
-    keybindings: {
         navigateTop        : 'k',
         navigateBottom     : 'j',
         jumpInbox          : 'g i',
@@ -118,29 +108,6 @@ const configNames = {
         appSearch          : '/',
         appKeyboardHelp    : '?',
         appShowSidemenu    : 's m',
-    },
 };
 
-/**
- * Flatten config object.
- *
- * @param {Object} conf = configNames
- * @param {Object} res = {}
- * @returns {Object} - flattened configNames
- */
-function flatten(conf = configNames, res = {}) {
-    const keys = ['general', 'codemirror', 'sync', 'encryption', 'keybindings'];
-
-    _.each(conf, (val, key) => {
-        if (_.indexOf(keys, key) === -1) {
-            // eslint-disable-next-line
-            return (res[key] = val);
-        }
-
-        flatten(val, res);
-    });
-
-    return res;
-}
-
-export {flatten as flattenConfigs, configNames};
+export {configNames};
