@@ -11,7 +11,6 @@ const theme = {
         const theme = data.name || Radio.request('collections/Configs', 'findConfig', {
             name: 'theme',
         });
-
         $('#lav--theme').attr('href', `styles/theme-${theme || 'default'}.css`);
     },
 

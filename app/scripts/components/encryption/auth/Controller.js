@@ -99,10 +99,14 @@ export default class Controller extends Mn.Object {
         const username   = this.view.ui.username.val().trim();
 
         Radio.request('collections/Profiles', 'setUser', {username});
-
-        return Radio.request('models/Encryption', 'readKeys', {passphrase})
+        Radio.request('models/Encryption', 'readKeys', {passphrase})
+        // return Radio.request('models/Encryption', 'readKeys', {passphrase})
         // Fetch a user's configs
-        .then(() => Radio.request('collections/Configs', 'find', {profileId: username}))
+        .then(() => {
+            console.log("find()");
+            Radio.request('collections/Configs', 'find', {profileId: username});
+            
+        })
         .then(() => this.onSuccess())
         .catch(error => {
             log('readKeys error', error);

@@ -51,7 +51,7 @@ export default class Db extends WorkerModule {
             storeName,
             name: profileId,
         });
-        console.log(this.dbs[id]);
+        // console.log(this.dbs[id]);
         return this.dbs[id];
     }
 

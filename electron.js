@@ -18,6 +18,7 @@ function createWindow () {
     });
     //win.loadFile('dist/index.html');
     win.loadURL("http://localhost:" + port);
+    win.webContents.openDevTools();
     // Emitted when the window is closed.
     win.on('closed', () => {
         // Dereference the window object, usually you would store windows

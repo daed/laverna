@@ -69,6 +69,8 @@ export default class Users extends Module {
 
         // Add a users key to the array of public keys if the user's private key exists
         if (privKey && privKey.length) {
+            // console.log("saveModel()");
+            // console.log(options);
             Radio.request('models/Encryption', 'readUserKey', {model: options.model});
         }
 

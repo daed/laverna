@@ -374,10 +374,11 @@ export default class Module {
      * @returns {Promise} resolves with a decrypted model
      */
     decryptModel(model) {
+        console.log('Encryption.js: decryptModel() start');
         if (!this.isEncryptEnabled(model)) {
             return Promise.resolve(model);
         }
-
+        console.log('Encryption.js: decryptModel() end');
         return Radio.request('models/Encryption', 'decryptModel', {model});
     }
 
@@ -416,7 +417,8 @@ export default class Module {
         if (model.storeName === 'edits') {
             username = model.get('username');
         }
-
+        // console.log("Module.js: encryptModel(): model:" );
+        // console.log(model);
         return Radio.request('models/Encryption', 'encryptModel', {model, username});
     }
 

@@ -5,7 +5,6 @@ import _ from 'underscore';
 import Collection from './Collection';
 import Config from '../models/Config';
 import {configNames} from './configNames';
-import Radio from 'backbone.radio';
 
 /**
  * Config collection.
@@ -25,16 +24,6 @@ export default class Configs extends Collection {
         return Config;
     }
 
-    /**
-     * Default config names and values.
-     *
-     * @returns {Object}
-     */
-    /*
-    get configNames() {
-        return flattenConfigs();
-    }
-    */
     /**
      * If current length of models is not equal to the length of
      * keys in configs property, there are new configs.
@@ -96,9 +85,8 @@ export default class Configs extends Collection {
         if (typeof data.appProfiles === 'string') {
             data.appProfiles = JSON.parse(data.appProfiles);
         }
-        // We set theme here because there's surprisingly few places we see the full config.
-        const theme = data['theme'];
-        Radio.trigger('components/settings', 'changeTheme', {theme});
+        // console.log("getConfigs():");
+        // console.log(data);
         // console.log(this.models);
         return data;
     }
@@ -120,17 +108,6 @@ export default class Configs extends Collection {
      * @param {Object} configs - key=value object
      * @returns {Object} this
      */
-    // Commented out.  Will remove if nothing breaks  08-26 -BA
-    /*
-    resetFromObject(configs) {
-        const models = [];
-
-        _.each(configs, (value, name) => models.push({name, value}));
-        this.reset(models);
-
-        return this;
-    }
-    */
 
     /**
      * Filter the collection to have only keybinding related models.
