@@ -60,7 +60,7 @@
     "modernizr": "^3.6.0",
     "modernizr-loader": "^1.0.1",
     "mousetrap": "^1.6.1",
-    "openpgp": "^2.6.1",
+    "openpgp": "^4.0.0",
     "prismjs": "^1.9.0",
     "serve-static": "^1.13.2",
     "simple-peer": "^8.2.0",

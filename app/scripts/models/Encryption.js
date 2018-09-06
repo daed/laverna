@@ -113,10 +113,11 @@ export default class Encryption {
      * @param {String} options.passphrase
      * @returns {Object}
      */
-    readKeys(options = this.options) {
+    async readKeys(options = this.options) {
         this.options   = _.extend(this.options, options);
         let privateKey = this.options.privateKey || this.user.privateKey;
-        privateKey     = this.openpgp.key.readArmored(privateKey).keys[0];
+        console.log(this.openpgp.key);
+        privateKey     = (await this.openpgp.key.readArmored(privateKey)).keys[0];
 
         /**
          * A user's key pairs.
@@ -241,6 +242,7 @@ export default class Encryption {
      * @returns {Promise}
      */
     sign({data}) {
+        data = this.openpgp.message.fromText(data);
         return this.openpgp.sign({data, privateKeys: this.keys.privateKey})
         .then(sign => sign.data);
     }
@@ -297,8 +299,12 @@ export default class Encryption {
      */
     async encrypt(options) {
         const keys = this.getUserKeys(options.username);
-        const enc  = await this.openpgp.encrypt(_.extend({}, keys, options));
-        return enc.data;
+        options.message = this.openpgp.message.fromText(options.data);
+        const crypt  = this.openpgp.encrypt(_.extend(options, keys))
+        .then(enc => {
+            return enc.data;    
+        });
+        return crypt;
     }
 
     /**
@@ -315,11 +321,12 @@ export default class Encryption {
     async decrypt(options) {
         const keys = this.getUserKeys(options.username);
         const data = _.extend({}, keys, options, {
-            message : this.openpgp.message.readArmored(options.message),
+            message : await this.openpgp.message.readArmored(options.message),
         });
-
-        const clearText = await this.openpgp.decrypt(data);
-        return clearText.data;
+        const plaintext = this.openpgp.decrypt(data).then(plaintext => {
+            return plaintext.data;
+        });
+        return plaintext;
     }
 
     /**

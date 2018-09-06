@@ -112,8 +112,12 @@ export default class View extends Mn.View {
         const models = this.collection.getConfigs();
 
         // Read the private key
-        this.privateKey = openpgp.key.readArmored(this.user.get('privateKey')).keys[0];
-        return {models, privateKey: this.privateKey};
+        const privateKey = (async function() {
+            const privateKey = await (openpgp.key.readArmored(this.user.get('privateKey'))).keys[0];
+            return privateKey;    
+        }());
+        
+        return {models, privateKey};
     }
 
 }
