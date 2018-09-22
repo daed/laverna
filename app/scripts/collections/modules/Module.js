@@ -374,11 +374,11 @@ export default class Module {
      * @returns {Promise} resolves with a decrypted model
      */
     decryptModel(model) {
-        console.log('Encryption.js: decryptModel() start');
+        // console.log('Encryption.js: decryptModel() start');
         if (!this.isEncryptEnabled(model)) {
             return Promise.resolve(model);
         }
-        console.log('Encryption.js: decryptModel() end');
+        // console.log('Encryption.js: decryptModel() end');
         return Radio.request('models/Encryption', 'decryptModel', {model});
     }
 

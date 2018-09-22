@@ -103,7 +103,7 @@ export default class Controller extends Mn.Object {
         // return Radio.request('models/Encryption', 'readKeys', {passphrase})
         // Fetch a user's configs
         .then(() => {
-            console.log("find()");
+            // console.log("find()");
             Radio.request('collections/Configs', 'find', {profileId: username});
             
         })

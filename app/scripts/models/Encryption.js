@@ -77,6 +77,7 @@ export default class Encryption {
             encryptCollection : this.encryptCollection,
             decryptCollection : this.decryptCollection,
             saveKeys          : this.saveKeys,
+            getUserKeys       : this.getUserKeys,
         }, this);
     }
 
@@ -120,6 +121,17 @@ export default class Encryption {
             this.options   = _.extend(this.options, options);
             let privateKey = this.options.privateKey || this.user.privateKey;
             privateKey = (await this.openpgp.key.readArmored(privateKey)).keys[0];
+
+            /*
+            console.log("privateKey hints:");
+            var propValue;
+            for(var propName in privateKey) {
+                propValue = privateKey[propName]
+            
+                console.log(propName,propValue);
+            }
+            */
+
             /**
              * A user's key pairs.
              *
@@ -266,8 +278,12 @@ export default class Encryption {
      * @returns {Promise}
      */
     sign({data}) {
-        data = this.openpgp.message.fromText(data);
-        return this.openpgp.sign({data, privateKeys: this.keys.privateKey})
+        //console.log("Before data:");
+        //console.log(data)
+        const message = this.openpgp.message.fromText(data);
+        //console.log('after data: ');
+        //console.log(message);
+        return this.openpgp.sign({message, privateKeys: this.keys.privateKey})
         .then(sign => sign.data);
     }
 
@@ -289,9 +305,13 @@ export default class Encryption {
     }
 
     /**
-     * Return an object that contains a user's public key.
+     * Return an object that contains a user's public key.  This was originally marked protected, but
+     * in components/settings/show/encryption/View.js we then go out of our way to obtain the private
+     * key in a way that's neither maintainable nor compatible with the current version (4.0.1) of
+     * openpgpjs.  As such (and since anyone can get the private key by looking in localstorage anyway),
+     * I'm going to be practical here.
      *
-     * @protected
+     * @public
      * @param {String} [username]
      * @return {Object} - {privateKeys, publicKeys}
      */
@@ -425,7 +445,6 @@ export default class Encryption {
             model.set(JSON.parse(msg));
             return model;
         });
-;
     }
 
     /**

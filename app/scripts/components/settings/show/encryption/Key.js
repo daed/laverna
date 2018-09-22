@@ -3,6 +3,7 @@
  */
 import Mn from 'backbone.marionette';
 import _ from 'underscore';
+import Radio from "backbone.radio";
 
 /**
  * Show private/public key information.
@@ -43,18 +44,30 @@ export default class Key extends Mn.View {
     }
 
     serializeData() {
+        // console.log("this.options");
+        // console.log(this.options);
         return this.options;
     }
 
+    initialize() {
+        this.user = Radio.request('collections/Profiles', 'getUser');
+        this.key = Radio.request('models/Encryption', 'getUserKeys').privateKey;
+        
+        // console.log('this.key:');
+        // console.log(this.key);
+    }
+
+
     templateContext() {
         return {
+            key: this.key,
             /**
              * Show armored key.
              *
              * @returns {String}
              */
             getArmor() {
-                const key = this.isPrivate ? this.key.toPublic() : this.key;
+                const key = this.key.isPrivate() ? this.key.toPublic() : this.key;
                 return key.armor();
             },
 
@@ -64,7 +77,7 @@ export default class Key extends Mn.View {
              * @returns {String}
              */
             getFingerprint() {
-                return _.splitBy4(this.key.primaryKey.fingerprint);
+                return _.splitBy4(this.key.getFingerprint());
             },
 
             /**

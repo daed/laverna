@@ -2469,9 +2469,15 @@
     },
     "buffer": {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "version": "5.2.1",
       "resolved": "https://registry.npmjs.org/buffer/-/buffer-5.2.1.tgz",
       "integrity": "sha512-c+Ko0loDaFfuPWiL02ls9Xd3GO3cPVmUobQ6t3rXNUk304u6hGq+8N/kFi+QEIKhzK3uwolVhLzszmfLmMLnqg==",
+=======
+      "version": "5.2.0",
+      "resolved": "https://registry.npmjs.org/buffer/-/buffer-5.2.0.tgz",
+      "integrity": "sha512-nUJyfChH7PMJy75eRDCCKtszSEFokUNXC1hNVSe+o+VdcgvDPLs20k3v8UXI8ruRYAJiYtyRea8mYyqPxoHWDw==",
+>>>>>>> Stashed changes
 =======
       "version": "5.2.0",
       "resolved": "https://registry.npmjs.org/buffer/-/buffer-5.2.0.tgz",
@@ -13061,9 +13067,15 @@
     },
     "openpgp": {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "version": "4.0.1",
       "resolved": "https://registry.npmjs.org/openpgp/-/openpgp-4.0.1.tgz",
       "integrity": "sha512-bc3/NwT8kxB81eKDCxNtmd4zQO24N4ei3/vBnACTQ5eMOSBrMGCG5RsS0t8+yWGQcr0T7l4rQM7ZZflTZq4a8A==",
+=======
+      "version": "4.0.0",
+      "resolved": "https://registry.npmjs.org/openpgp/-/openpgp-4.0.0.tgz",
+      "integrity": "sha512-1MvY/r/EaqGA6Q3XdwrZBn/6PkntxdTEAbHP5YbS21FDe9wb4gaFy35lJVfSQY+ncdDZBPQtPHjqCJGZyguU0Q==",
+>>>>>>> Stashed changes
 =======
       "version": "4.0.0",
       "resolved": "https://registry.npmjs.org/openpgp/-/openpgp-4.0.0.tgz",

@@ -110,14 +110,7 @@ export default class View extends Mn.View {
      */
     serializeData() {
         const models = this.collection.getConfigs();
-
-        // Read the private key
-        const privateKey = (async function() {
-            const privateKey = await (openpgp.key.readArmored(this.user.get('privateKey'))).keys[0];
-            return privateKey;    
-        }());
-        
+        const privateKey = Radio.request('models/Encryption', 'getUserKeys').privateKey;
         return {models, privateKey};
     }
-
 }

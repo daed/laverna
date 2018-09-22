@@ -158,7 +158,7 @@ export default class Controller extends Mn.Object {
             reader.onload = evt => resolve(evt.target.result);
             reader.readAsText(file);
         });
-        const {keys, err} = openpgp.key.readArmored(armorKey);
+        const {keys, err} = (await openpgp.key.readArmored(armorKey));
 
         // Accept only a private key
         if (err || keys[0].isPublic()) {
