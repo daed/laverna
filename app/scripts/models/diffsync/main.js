@@ -16,6 +16,8 @@ export default function initializer() {
             name: 'cloudStorage',
         });
 
+        // intentionally breaking signal server for now.  no p2p until it works.
+        sync == 'none';
         if (sync === 'p2p') {
             signal.changeServer();
             new Peer().init();

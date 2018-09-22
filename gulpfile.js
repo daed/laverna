@@ -41,7 +41,6 @@ function createTask(name) {
     'copy',
     'copyDist',
     'copyRelease',
-    'lav-server',
 ].forEach(createTask);
 
 gulp.task('release:after', () => {
@@ -68,7 +67,6 @@ gulp.task('release', $.sequence(
     'clean:release',
     'copyDist', 
     'copyRelease',
-    'lav-server',
     'npm:install',
     'electron'
 ));

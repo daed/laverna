@@ -28,7 +28,7 @@ import './utils/electronListener';
 import './collections/modules/main';
 
 // P2P differential synchronization
-import './models/diffsync/main';
+// import './models/diffsync/main';
 
 // Components
 import './components/setup/main';

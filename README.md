@@ -63,8 +63,6 @@
 
 **NOTE: IF YOU ARE UPGRADING FROM AN OLD VERSION OF LAVERNA, BACKUP EVERYTHING FIRST.  THIS CODE HAS BEEN TESTED BUT MANY THINGS HAVE CHANGED.  DATA LOSS IS POTENTIAL.**
 
-Install mongodb for your operating system:  https://www.mongodb.com/download-center?jmp=nav#community
-
 Install a version of laverna from here:
 
 https://github.com/daed/laverna/releases/tag/v1.0.0-beta
@@ -92,7 +90,6 @@ You should now be able to run the laverna executable.
 
 Setting up the Laverna development environment only takes a few minutes. To run locally, you need to have the following installed:
 * [Node.js version 8.11.4 or 10.9.0](https://nodejs.org/). Laverna works with other previous Node versions, but requires changes to `package.json` and is not recommended.
-* [MongoDB](https://docs.mongodb.com/manual/installation/)
 * [Git](https://git-scm.com/book/en/v2) (note: Windows users need to set the PATH variable for git after installation).
 
 
@@ -139,33 +136,7 @@ $ npm run setup
 $ gulp
 ```
 
-### Part Two: Setup Signal Server
-
-**1. Clone the repository for [Laverna's backend Signal Server](https://github.com/Laverna/laverna-server):**
-
-```bash
-$ git clone git@github.com:Laverna/server.git
-```
-<br/>
-
-```bash
-$ cd server && npm install
-```
-<br/>
-
-**3. Configure the Signal Server:**
-
-Copy `.env.example` to `.env` and change configs in the new file.
-
-<br/>
-
-**4. Start the Signal Server:**
-
-```bash
-$ npm start
-```
-
-**5. Point a web broswer to http://localhost:9000**
+**6. Point a web broswer to http://localhost:9000**
 
 ## Coding Style Guidelines
 
@@ -174,8 +145,6 @@ We ask that you use either **plain JavaScript or the [Marionette.js](http://mari
 Localizations [are available here.](https://github.com/Laverna/laverna/blob/dev/CONTRIBUTE.md)
 
 ## Encryption
-
-The current Laverna release (on `master`) uses the [SJCL](http://bitwiseshiftleft.github.io/sjcl/) library to implement the AES algorithm.
 
 **However, in our effort to permanently enhance the application's security**, Laverna is implementing OpenPGP encryption via [OpenPGP.js](https://github.com/openpgpjs/openpgpjs).
 

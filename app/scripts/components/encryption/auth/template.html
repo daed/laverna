@@ -6,13 +6,12 @@
         </header>
 
         <div class="form-group form--icon">
-            <input name="username" class="form-control input-lg input--brand"
-            placeholder="{{ _.i18n('Username') }}" required="" />
-                <!--- <% _.each(profiles, function(profile) { %>
+            <select name="username" class="form-control input-lg input--brand"
+            placeholder="{{ _.i18n('Username') }}" required="">
+                <% _.each(profiles, function(profile) { %>
                 <option value="{{profile.username}}">{{profile.username}}</option>
             <% }) %>
-            -->
-            </input>
+            </select>
         </div> 
 
         <div class="form-group form--icon">

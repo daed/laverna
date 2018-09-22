@@ -21,7 +21,7 @@ export default class View extends Mn.View {
     ui() {
         return {
             password : 'input[name=password]',
-            username : 'input[name=username]',
+            username : 'select[name=username]',
             btn      : '.btn[type=submit]',
         };
     }
@@ -44,7 +44,7 @@ export default class View extends Mn.View {
      */
     onReady() {
         this.ui.btn.css('position', 'relative');
-        this.ui.username.focus();
+        this.ui.password.focus();
     }
 
     /**

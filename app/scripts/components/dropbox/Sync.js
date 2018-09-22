@@ -195,7 +195,7 @@ export default class Sync {
     syncRemoteChanges({files, collection}) {
         const promises = [];
         _.each(files, file => {
-            console.log("dropbox file: ");
+            console.log('dropbox file: ');
             console.log(file);
             const model = collection.findWhere({id: file.id});
 

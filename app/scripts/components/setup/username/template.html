@@ -19,9 +19,16 @@
     <input class="form-control col-xs-12 input-lg input--brand" type="text" name="username" placeholder="{{_.i18n('Username')}}" title="{{_.i18n('Username')}}" />
 </div>
 
-<div class="col-xs-12 form-group">
+<!--
+    Removed 2018-09-21 because end users shouldn't have to install mongodb for features that don't 
+    even exist.  This will get put back in when I (or someone) gets the chance to make the p2p
+    stuff actually work.  Even then, it will probably not resemble what it does today.
+      -BA
+-->
+<div hidden class="col-xs-12 form-group">
     <input class="form-control col-xs-12 input-lg input--brand" type="text" name="signalServer" value="{{signalServer}}" placeholder="{{_.i18n('Signaling server')}}" title="{{_.i18n('Signaling server')}}" />
 </div>
+
 
 <div class="col-xs-12" style="margin-bottom:10px">
     <div class="alert alert-warning hidden"></div>
