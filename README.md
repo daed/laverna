@@ -69,9 +69,7 @@ https://github.com/daed/laverna/releases/tag/v1.0.0-beta
 
 ### Post installation
 
-Go to the directory you unzipped laverna and rename the file at resources/app/laverna-server/env.example to env.
-Edit that file and add a long random string of characters to JWT_SECRET.
-You should now be able to run the laverna executable.
+None.  Removed the signal server component for the time being.
 
 ## Install Client Desktop App (beta)
 (coming soon)
