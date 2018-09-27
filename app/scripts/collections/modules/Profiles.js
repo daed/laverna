@@ -58,7 +58,7 @@ export default class Profiles extends Module {
 
     // This destroys a user's profile outright.
     destroyProfile(opt) {
-        console.log("destroyProfile(): calling destroyUser()");
+        console.log('destroyProfile(): calling destroyUser()');
         this.collection.destroyUser(opt);
     }
 

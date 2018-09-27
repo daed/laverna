@@ -49,7 +49,7 @@ export default class View extends Mn.View {
 
     triggers() {
         return {
-            'click .settings--cancel' : 'cancel',
+            'click .settings--close' : 'close',
         };
     }
 

@@ -5,7 +5,7 @@ import Mn from 'backbone.marionette';
 import _ from 'underscore';
 import Radio from 'backbone.radio';
 
-import Behavior from "../Behavior";
+import Behavior from '../Behavior';
 
 /**
  * Encryption settings view.
@@ -69,8 +69,8 @@ export default class View extends Mn.View {
         }
         else {
             // nuke data here
-            console.log("doWipeAllData() confirmed...")
-            window.location.replace("/");
+            console.log('doWipeAllData() confirmed...');
+            window.location.replace('/');
             Radio.request('collections/Profiles', 'destroyProfile', this.user.id);
 
         }

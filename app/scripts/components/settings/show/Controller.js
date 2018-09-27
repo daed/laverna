@@ -135,7 +135,7 @@ export default class Controller extends Mn.Object {
         this.listenTo(this.view, 'destroy', this.destroy);
         this.listenTo(this.view, 'save', this.save);
         this.listenTo(this.view, 'cancel', this.confirmNavigate);
-
+        this.listenTo(this.view, 'close', this.confirmNavigate);
         // Listen to child view events
         this.listenTo(this.view.tabView, 'change:value', this.changeValue);
 
@@ -158,6 +158,18 @@ export default class Controller extends Mn.Object {
     }
 
     /**
+     * We should probably never need preRedirect
+     */
+
+    async redirect() {
+        const preRedirect = false;
+        await (preRedirect ? this.preRedirect() : Promise.resolve());
+        Radio.request('utils/Url', 'navigateBack');
+        this.view.destroy();
+    }
+
+
+    /**
      * Save changes.
      *
      * @returns {Promise}
@@ -174,6 +186,7 @@ export default class Controller extends Mn.Object {
         .then(() => this.changes = [])
         .catch(err => log('save error', err));
     }
+
 
     /**
      * Before navigating to another page, show a confirm message
@@ -216,9 +229,15 @@ export default class Controller extends Mn.Object {
         Radio.request('utils/Url', 'navigate', {url});
 
         // Reload the page to apply changes
+        /**
+         * This is annoying at best.  I think it might be actively breaking things on top of it.
+         * I'm not actually sure if it's needed.
+         */
+        /*
         if (url.search('settings') === -1) {
             document.location.reload();
         }
+        */
     }
 
 }

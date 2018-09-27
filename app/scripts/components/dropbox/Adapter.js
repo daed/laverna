@@ -59,7 +59,7 @@ export default class Adapter {
         }
         // A user has granted the permission
         else if (hash.access_token && hash.access_token.length) {
-            console.log("Access token: " + hash.access_token);
+            console.log(`Access token: ${hash.access_token}`);
             return this.saveAccessToken(hash.access_token);
         }
         else {
@@ -235,7 +235,7 @@ export default class Adapter {
      * @returns {Promise}
      */
     async readFile({path}) {
-        console.log("dropbox/Adapter.js: readFile()");
+        console.log('dropbox/Adapter.js: readFile()');
         const resp = await this.dbx.filesDownload({path});
         return new Promise(resolve => {
             const reader = new FileReader();

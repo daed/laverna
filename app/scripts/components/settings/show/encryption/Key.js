@@ -33,6 +33,7 @@ export default class Key extends Mn.View {
         return {
             'focus @ui.text'    : 'selectAll',
             'click .btn--cancel': 'destroy',
+            'click .btn--close' : 'close',
         };
     }
 

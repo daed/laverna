@@ -5,7 +5,7 @@ port = 9000;
 
 const {app, BrowserWindow} = require('electron');
 const laverna = require('./server.js')(port);
-const {sigApp, sigServer} = require('./laverna-server/server.js');
+//const {sigApp, sigServer} = require('./laverna-server/server.js');
 
 //laverna.on("listening", function () { laverna.close(); });
 

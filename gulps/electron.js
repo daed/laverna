@@ -33,15 +33,15 @@ module.exports = function(gulp, plugins, pkg) {
                     CFBundleIdentifier  : pkg.name,
                     CFBundleName        : pkg.name,
                     CFBundleVersion     : pkg.version,
-                    icon                : './app/images/icon/icon-512x512.icns'
+                    icon                : './app/images/icon/icon-512x512.icns',
                 },
                 win: {
                     'version-string'    : pkg.version,
                     'file-version'      : pkg.version,
                     'product-version'   : pkg.version,
-                    'icon'              : './resources/app/images/icon/icon-120x120.png'
-                }
-            }
+                    icon              : './app/images/icon/icon-120x120.png',
+                },
+            },
         }));
     };
 };

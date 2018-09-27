@@ -44,7 +44,7 @@ export default class View extends Mn.View {
      */
     onReady() {
         this.ui.btn.css('position', 'relative');
-        this.ui.username.focus();
+        this.ui.password.focus();
     }
 
     /**

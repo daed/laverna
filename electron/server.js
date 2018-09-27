@@ -1,15 +1,15 @@
+
 'use strict';
 
 var finalhandler = require('finalhandler'),
-    https         = require('https'),
+    http         = require('http'),
     serveStatic  = require('serve-static'),
     serve,
     server;
 
 serve  = serveStatic(__dirname + '/dist', {index: ['index.html']});
 
-
-server = https.createServer(function(req, res) {
+server = http.createServer(function(req, res) {
     var done = finalhandler(req, res);
     serve(req, res, done);
 });
