@@ -1,6 +1,6 @@
 {
   "name": "laverna",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.3-beta",
   "description": "the client package for the laverna web files",
   "main": "electron.js",
   "directories": {
@@ -12,10 +12,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github/daed/lavernaserver.git"
+    "url": "https://github/daed/laverna.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MPL-2.0",
   "dependencies": {
     "browser-sync": "^2.24.7",
     "del": "^3.0.0",
