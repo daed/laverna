@@ -17,7 +17,7 @@ import _ from 'underscore';
  * not work and a user needs to provid their own
  */
 const constants = {
-    version       : '0.1.00',
+    version       : '1.0.3-beta',
     url           : location.origin + location.pathname.replace('index.html', ''),
     defaultHosts  : [
         'privatenote-online.com',
