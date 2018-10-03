@@ -4,8 +4,10 @@
 import test from 'tape';
 import sinon from 'sinon';
 
+import _ from '../../../../../app/scripts/utils/underscore';
 import '../../../../../app/scripts/utils/underscore';
 import Configs from '../../../../../app/scripts/collections/Configs';
+import {configNames} from '../../../../../app/scripts/collections/configNames';
 import View from '../../../../../app/scripts/components/dropbox/settings/View';
 
 let sand;
@@ -16,7 +18,13 @@ test('components/dropbox/settings/View: before()', t => {
 
 test('components/dropbox/settings/View: serializeData()', t => {
     const collection = new Configs();
-    collection.resetFromObject(collection.configNames);
+    
+    //collection.resetFromObject(collection.configNames);
+
+    const models = [];
+    _.each(configNames, (value, name) => models.push({name, value}));
+    collection.reset(models);
+
     const view = new View({collection});
 
     const data = view.serializeData();

@@ -16,7 +16,7 @@ module.exports = function(gulp, $) {
     ]));
 
     gulp.task('tape:debug', $.shell.task([
-        'export TAP_DIAG=1 && babel-node ./test/tape/index.js',
+        'set TAP_DIAG=1 && babel-node ./test/tape/index.js',
     ]));
 
     gulp.task('test:run', ['lint', 'tape']);

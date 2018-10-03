@@ -114,6 +114,8 @@ export default class Configs extends Collection {
         return new this.model({name, value});
     }
 
+
+
     /**
      * Reset the collection with the values from key=value object.
      *

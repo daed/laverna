@@ -134,7 +134,7 @@ test('encryption/auth/Controller: onSubmit()', t => {
     t.equal(req.calledWith('models/Encryption', 'readKeys', {
         passphrase: 'test',
     }), true, 'tries to decrypt the private key');
-
+    console.log(res);
     res.then(() => {
         t.equal(req.calledWith('collections/Configs', 'find', {
             profileId: 'bob',

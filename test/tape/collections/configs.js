@@ -27,8 +27,8 @@ test('collections/Configs: model', t => {
 
 test('collections/Configs: configNames', t => {
     const configs = new Configs();
-    t.equal(typeof configs.configNames, 'object', 'is an object');
-    t.equal(Object.keys(configs.configNames).length > 10, true, 'is not empty');
+    t.equal(typeof configNames, 'object', 'is an object');
+    t.equal(Object.keys(configNames).length > 10, true, 'is not empty');
     t.end();
 });
 
@@ -38,7 +38,7 @@ test('collections/Configs: hasNewConfigs()', t => {
     t.equal(configs.hasNewConfigs(), true, 'returns true if there are new configs');
 
     // Create the same amount of models
-    Object.keys(configs.configNames).forEach(name => configs.add({name}));
+    Object.keys(configNames).forEach(name => configs.add({name}));
     t.equal(configs.hasNewConfigs(), false,
         'returns false if there are not any new configs');
 
@@ -97,30 +97,40 @@ test('collections/Configs: getDefault()', t => {
     const configs = new Configs();
     const model   = configs.getDefault('pagination');
 
-    t.equal(model.get('value'), configs.configNames.pagination,
+    t.equal(model.get('value'), configNames.pagination,
         'uses the default config values');
 
     t.end();
 });
 
+// This isn't actually used in the code anywhere.  
+// It's disabled for the time being.
+/*
 test('collections/Configs: resetFromObject()', t => {
     const configs = new Configs();
     const spy     = sand.spy(configs, 'reset');
-    const res     = configs.resetFromObject(configs.configNames);
+    const res     = configs.resetFromObject(configNames);
 
     t.equal(res, configs, 'returns itself');
     t.equal(spy.called, true, 'resets with new models');
-    t.equal(configs.length, Object.keys(configs.configNames).length,
+    t.equal(configs.length, Object.keys(configNames).length,
         'creates new models');
 
     t.end();
 });
+*/
 
+// I flattened the config, so the keybindings section doesn't exist anymore.
+//
+/*
 test('collections/Configs: keybindings()', t => {
     const configs = new Configs();
-    configs.resetFromObject(configs.configNames);
-    const res     = configs.keybindings();
 
+    const models = [];
+    _.each(configNames, (value, name) => models.push({name, value}));
+    configs.reset(models);
+
+    const res     = configs.keybindings();
     t.equal(configs.length > 10, true, 'collection is not empty');
     t.equal(Array.isArray(res), true, 'returns an array');
     t.equal(res.length, Object.keys(configNames.keybindings).length,
@@ -129,9 +139,14 @@ test('collections/Configs: keybindings()', t => {
     t.end();
 });
 
+
 test('collections/Configs: appShortcuts()', t => {
     const configs = new Configs();
-    configs.resetFromObject(configs.configNames);
+
+    const models = [];
+    _.each(configs, (value, name) => models.push({name, value}));
+    configs.reset(models);
+
     const res     = configs.appShortcuts();
 
     t.equal(Array.isArray(res), true, 'returns an array');
@@ -140,9 +155,18 @@ test('collections/Configs: appShortcuts()', t => {
     t.end();
 });
 
+
+
 test('collections/Configs: filterByName()', t => {
     const configs = new Configs();
-    configs.resetFromObject(configs.configNames);
+    
+    // The code below replaces resetFromObject() which was removed
+    // from Configs() since we didn't actually use it anywhere other
+    // than during testing.
+    const models = [];
+    _.each(configs, (value, name) => models.push({name, value}));
+    configs.reset(models);
+
     const res     = configs.filterByName('actions');
 
     t.equal(Array.isArray(res), true, 'returns an array');
@@ -150,6 +174,7 @@ test('collections/Configs: filterByName()', t => {
 
     t.end();
 });
+*/
 
 test('collections/Configs: after()', t => {
     localStorage.clear();

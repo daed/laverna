@@ -225,7 +225,12 @@ test('settings/show/Controller: navigate()', t => {
     t.equal(req.calledWith('utils/Url', 'navigate', {
         url : '/notes',
     }), true, 'navigates to /notes page by default');
-    t.equal(document.location.reload.called, true,
+    
+    // We force reloaded the page if settings were changed.  It looks like it was intentional.
+    // I still do not know why it was done that way.  Nothing appears to break if you don't reload
+    // and several things appear to break if you do.  Not to mention that it's super annoying.
+    // - Brad Arnett
+    t.equal(document.location.reload.called, false,
         'reloads the page to apply settings if it is not a settings page');
 
     sand.restore();

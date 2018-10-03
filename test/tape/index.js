@@ -31,7 +31,12 @@ JSDOM.fromFile(`${__dirname}/../../app/index.html`, {
     global.location    = global.window.location;
     global.HTMLElement = doc.window.HTMLElement;
 
-    global.window.localStorage = global.localStorage;
+    Object.defineProperty(global.window, 'localStorage', {
+        get: function() {
+            return global.localStorage;
+        }
+    });
+    //global.window.localStorage = global.localStorage;
     global.window.setTimeout   = setTimeout;
     global.window.clearTimeout = clearTimeout;
 

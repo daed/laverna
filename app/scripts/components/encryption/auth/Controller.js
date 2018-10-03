@@ -99,18 +99,20 @@ export default class Controller extends Mn.Object {
         const username   = this.view.ui.username.val().trim();
 
         Radio.request('collections/Profiles', 'setUser', {username});
-        Radio.request('models/Encryption', 'readKeys', {passphrase})
-        // return Radio.request('models/Encryption', 'readKeys', {passphrase})
+        //Radio.request('models/Encryption', 'readKeys', {passphrase})
+        return Radio.request('models/Encryption', 'readKeys', {passphrase})
         // Fetch a user's configs
         .then(() => {
             // console.log("find()");
             Radio.request('collections/Configs', 'find', {profileId: username});
-            
         })
-        .then(() => this.onSuccess())
+        .then(() => {
+            this.onSuccess()
+        })
         .catch(error => {
             log('readKeys error', error);
             this.view.triggerMethod('auth:error', {error});
+            return (error);
         });
     }
 
@@ -130,6 +132,7 @@ export default class Controller extends Mn.Object {
     onSuccess() {
         this.promise.resolve();
         this.view.destroy();
+        return true;
     }
 
 }

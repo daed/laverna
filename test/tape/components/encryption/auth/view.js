@@ -39,13 +39,13 @@ test('encryption/auth/View: onReady()', t => {
     const view = new View();
     view.ui    = {
         btn      : {css   : sand.stub()},
-        username : {focus : sand.stub()},
+        password : {focus : sand.stub()},
     };
 
     view.onReady();
     t.equal(view.ui.btn.css.calledWith('position', 'relative'), true,
         'changes the submit button\'s "position" attribute');
-    t.equal(view.ui.username.focus.called, true, 'focuses on password input');
+    t.equal(view.ui.password.focus.called, true, 'focuses on password input');
 
     sand.restore();
     t.end();
