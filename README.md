@@ -65,14 +65,11 @@
 
 Install a version of laverna from here:
 
-https://github.com/daed/laverna/releases/tag/v1.0.0-beta
+https://github.com/daed/laverna/releases/
 
 ### Post installation
 
 None.  Removed the signal server component for the time being.
-
-## Install Client Desktop App (beta)
-(coming soon)
 
 #### Arch Linux (or derived distributions)
 
@@ -89,6 +86,7 @@ None.  Removed the signal server component for the time being.
 Setting up the Laverna development environment only takes a few minutes. To run locally, you need to have the following installed:
 * [Node.js version 8.11.4 or 10.9.0](https://nodejs.org/). Laverna works with other previous Node versions, but requires changes to `package.json` and is not recommended.
 * [Git](https://git-scm.com/book/en/v2) (note: Windows users need to set the PATH variable for git after installation).
+* [Yarn](https://yarnpkg.com/en/) You can use npm but it's not recommended due to inconsistencies observed in the modules installed.
 
 
 ### Part One: Install Laverna
@@ -115,6 +113,7 @@ $ git fetch && git checkout dev
 
 **3. Install Gulp:**
 
+(yarn instructions coming soon)
 ```bash
 $ npm install gulp
 $ npm install -g gulp
@@ -124,8 +123,13 @@ $ npm install -g gulp
 **4. Install dependencies and build:**
 
 ```bash
+$ yarn
+```
+- or -
+```bash
 $ npm run setup
 ```
+
 <br/>
 
 **5. Start Laverna:**
