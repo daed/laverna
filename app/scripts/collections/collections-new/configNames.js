@@ -27,14 +27,14 @@ const configNames = {
      * @prop {String} navbarNotebooksMax - the maximum amount of notebooks shown
      * in the navbar
      */
-        appLang            : '',
-        theme              : '',
+    appLang            : '',
+    theme              : '',
 
-        version            : '0',
-        pagination         : '10',
-        sortnotes          : 'created',
-        sortnotebooks      : 'name',
-        navbarNotebooksMax : '5',
+    version            : '0',
+    pagination         : '10',
+    sortnotes          : 'created',
+    sortnotebooks      : 'name',
+    navbarNotebooksMax : '5',
 
     /**
      * Codemirror settings.
@@ -43,9 +43,9 @@ const configNames = {
      * @prop {String} textEditor - keybindings used for the editor (vim|emacs|sublime)
      * @prop {String} indentUnit - number of spaces used for indentation
      */
-        editMode           : 'preview',
-        textEditor         : 'default',
-        indentUnit         : '4',
+    editMode           : 'preview',
+    textEditor         : 'default',
+    indentUnit         : '4',
 
     /**
      * Synchronization settings.
@@ -59,13 +59,13 @@ const configNames = {
      * @prop {String} dropboxAccessToken - dropbox access token
      * @prop {String} folderPath - the path to your data storage directory
      */
-        signalServer       : 'http://localhost:3000',
-        deviceId           : '',
-        peers              : [],
-        cloudStorage       : 'p2p',
-        dropboxKey         : '',
-        dropboxAccessToken : '',
-        folderPath        : '',
+    signalServer       : 'http://localhost:3000',
+    deviceId           : '',
+    peers              : [],
+    cloudStorage       : 'p2p',
+    dropboxKey         : '',
+    dropboxAccessToken : '',
+    folderPath        : '',
 
     /**
      * Encryption settings.
@@ -93,21 +93,21 @@ const configNames = {
      * @prop {String} appSearch - show search box (default /)
      * @prop {String} appKeyboardHelp - show keybinding help (default ?)
      */
-        navigateTop        : 'k',
-        navigateBottom     : 'j',
-        jumpInbox          : 'g i',
-        jumpNotebook       : 'g n',
-        jumpFavorite       : 'g f',
-        jumpRemoved        : 'g t',
-        jumpOpenTasks      : 'g o',
-        actionsEdit        : 'e',
-        actionsOpen        : 'o',
-        actionsRemove      : 'shift+3',
-        actionsRotateStar  : 's',
-        appCreateNote      : 'c',
-        appSearch          : '/',
-        appKeyboardHelp    : '?',
-        appShowSidemenu    : 's m',
+    navigateTop        : 'k',
+    navigateBottom     : 'j',
+    jumpInbox          : 'g i',
+    jumpNotebook       : 'g n',
+    jumpFavorite       : 'g f',
+    jumpRemoved        : 'g t',
+    jumpOpenTasks      : 'g o',
+    actionsEdit        : 'e',
+    actionsOpen        : 'o',
+    actionsRemove      : 'shift+3',
+    actionsRotateStar  : 's',
+    appCreateNote      : 'c',
+    appSearch          : '/',
+    appKeyboardHelp    : '?',
+    appShowSidemenu    : 's m',
 };
 
 export {configNames};

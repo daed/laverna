@@ -3,7 +3,7 @@
  */
 import Mn from 'backbone.marionette';
 import _ from 'underscore';
-import Radio from "backbone.radio";
+import Radio from 'backbone.radio';
 
 /**
  * Show private/public key information.

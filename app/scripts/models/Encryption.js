@@ -117,7 +117,7 @@ export default class Encryption {
      */
     readKeys(options = this.options) {
         // console.log('Encryption.js: readKeys() start');
-        let success = (async() => {
+        const success = (async() => {
             this.options   = _.extend(this.options, options);
             let privateKey = this.options.privateKey || this.user.privateKey;
             privateKey = (await this.openpgp.key.readArmored(privateKey)).keys[0];
@@ -204,7 +204,7 @@ export default class Encryption {
     readUserKey({model}) {
         // console.log("readUserKey()");
         // console.log(model.attributes);
-        let pubkey = model.attributes.publicKey;
+        const pubkey = model.attributes.publicKey;
         (async() => {
             const key = (await this.openpgp.key.readArmored(pubkey).keys[0]);
             this.keys.publicKeys[model.get('username')] = key;
@@ -278,11 +278,11 @@ export default class Encryption {
      * @returns {Promise}
      */
     sign({data}) {
-        //console.log("Before data:");
-        //console.log(data)
+        // console.log("Before data:");
+        // console.log(data)
         const message = this.openpgp.message.fromText(data);
-        //console.log('after data: ');
-        //console.log(message);
+        // console.log('after data: ');
+        // console.log(message);
         return this.openpgp.sign({message, privateKeys: this.keys.privateKey})
         .then(sign => sign.data);
     }
@@ -387,15 +387,15 @@ export default class Encryption {
             message : await this.openpgp.message.readArmored(options.message),
         });
         const t4 = performance.now();
-        console.log('Encryption.js: readArmored() end +' + (t4-t3).toString());
-        //console.log(data);
+        console.log(`Encryption.js: readArmored() end +${(t4 - t3).toString()}`);
+        // console.log(data);
         const plaintext = this.openpgp.decrypt(data).then(plaintext => {
-            //console.log('Encryption.js: this.openpgp.decrypt (first then()):');
-            //console.log(plaintext.data);
+            // console.log('Encryption.js: this.openpgp.decrypt (first then()):');
+            // console.log(plaintext.data);
             return plaintext.data;
         });
         const t1 = performance.now();   
-        console.log('Encryption.js: decrypt() end +' + (t1-t0).toString());
+        console.log(`Encryption.js: decrypt() end +${(t1 - t0).toString()}`);
         return plaintext;
     }
 
@@ -439,7 +439,7 @@ export default class Encryption {
         }
 
         const decrypted = this.decrypt({message, username})
-        .then(function(msg) {
+        .then(msg => {
             // console.log("decryptModel: this.decrypt returned: ");
             // console.log(msg);
             model.set(JSON.parse(msg));

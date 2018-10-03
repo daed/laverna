@@ -23,8 +23,8 @@ export default class Profiles extends Collection {
     }
 
     destroyUser(opt) {
-        console.log("destroyUser(): calling destroyDb()");
-        this.sync("destroyDb", opt, {});
+        console.log('destroyUser(): calling destroyDb()');
+        this.sync('destroyDb', opt, {});
     }
 
     constructor(models) {

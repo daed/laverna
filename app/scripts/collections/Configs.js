@@ -97,7 +97,7 @@ export default class Configs extends Collection {
             data.appProfiles = JSON.parse(data.appProfiles);
         }
         // We set theme here because there's surprisingly few places we see the full config.
-        const theme = data['theme'];
+        const theme = data.theme;
         Radio.trigger('components/settings', 'changeTheme', {theme});
         // console.log(this.models);
         return data;
