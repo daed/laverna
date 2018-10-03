@@ -6,7 +6,7 @@ import test from 'tape';
 import sinon from 'sinon';
 import * as openpgp from 'openpgp';
 import Radio from 'backbone.radio';
-import {configNames} from '../../../app/scripts/collections/configNames';
+import {configNames} from '../../../../../app/scripts/collections/configNames';
 
 /* eslint-disable */
 import _ from '../../../../../app/scripts/utils/underscore';
