@@ -15,6 +15,9 @@ function createWindow () {
         height: 800,
         backgroundColor: '#259D7A',
         minWidth: 925,
+        // everything was working fine without the below line.  Suddenly we needed it.
+        // I cannot for the life of me figure out why.
+        webPreferences: { nodeIntegration: false }
     });
     //win.loadFile('dist/index.html');
     win.loadURL("http://localhost:" + port);
