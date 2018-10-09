@@ -1,3 +1,5 @@
+<h2 > Attention: Development on Laverna has been moved to a new repository at https://github.com/encryptic-team/encryptic.  This repository (as well as the master at laverna/Laverna) should be considered depricated. </h2>
+
 <div align="center">
   <h1>Laverna | The open source note-taking app</h1>
 
